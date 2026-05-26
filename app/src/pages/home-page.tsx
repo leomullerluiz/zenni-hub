@@ -3,6 +3,7 @@
 
 import { FormEvent, useState } from 'react';
 import Link from 'next/link';
+import { Code2, GitFork, Star } from 'lucide-react';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/src/components/ui/accordion';
 import { Button } from '@/app/src/components/ui/button';
@@ -147,9 +148,18 @@ export function HomePage() {
                                                 <div className="space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
                                                     <p>{repository.description || 'Sem descricao disponível.'}</p>
                                                     <div className="flex flex-wrap gap-4 text-xs text-zinc-500 dark:text-zinc-400">
-                                                        <span>{repository.language || 'Linguagem nao informada'}</span>
-                                                        <span>{repository.stargazers_count} estrelas</span>
-                                                        <span>{repository.forks_count} forks</span>
+                                                        <span className="inline-flex items-center gap-1.5">
+                                                            <Code2 className="h-3.5 w-3.5" aria-hidden="true" />
+                                                            {repository.language || 'Linguagem nao informada'}
+                                                        </span>
+                                                        <span className="inline-flex items-center gap-1.5">
+                                                            <Star className="h-3.5 w-3.5" aria-hidden="true" />
+                                                            {repository.stargazers_count} estrelas
+                                                        </span>
+                                                        <span className="inline-flex items-center gap-1.5">
+                                                            <GitFork className="h-3.5 w-3.5" aria-hidden="true" />
+                                                            {repository.forks_count} forks
+                                                        </span>
                                                     </div>
                                                     <Link
                                                         href={`/repos/${encodeURIComponent(repository.owner.login)}/${encodeURIComponent(repository.name)}`}
