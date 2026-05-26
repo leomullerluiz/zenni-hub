@@ -18,4 +18,9 @@ bun dev
 ```
 to run the project.
 
+Set a .env file:
+```
+NEXT_PUBLIC_API_BASE_URL=https://api.github.com
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
